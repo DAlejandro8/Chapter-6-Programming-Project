@@ -2,10 +2,109 @@
 //
 
 #include <iostream>
+#include<iomanip>
+using namespace std;
+
+
+
+
+double getScore() {
+    double SCORE;
+    do {
+        cout << "Enter judge's score (0-10)\n";
+        cin >> SCORE;
+
+
+
+    } while (SCORE < 0 || SCORE>10);
+        return SCORE;
+
+
+}
+
+
+bool isLower(double L, double H) {
+
+    return L <= H;
+
+
+}
+bool isHigher(double L, double H) {
+    return L >= H;
+
+
+}
+
+
+
+double calcAverage(double TOTAL, double MIN, double MAX) {
+
+    return (TOTAL - MIN - MAX) / 3;
+
+
+
+}
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    double score;
+    double TOTAL = 0;
+    double MIN;
+    double MAX;
+
+    score = getScore();
+    TOTAL += score;
+    MIN = MAX = score;
+
+    for (int i = 1; i < 5; i++) {
+        score = getScore();
+        TOTAL += score;
+        
+        if (isLower(score, MIN)) {
+
+            MIN = score;
+
+        }
+        if (isHigher(score, MAX)) {
+
+            MAX = score;
+
+
+        }
+
+        
+
+
+
+
+
+
+
+
+
+
+    }
+
+
+
+
+    double AVE = calcAverage(TOTAL, MIN, MAX);
+
+
+
+
+
+
+
+    cin.ignore();
+
+    cout << "Your final score is...\n";
+    cin.get();
+    cout << AVE << endl;
+
+
+
 }
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu
