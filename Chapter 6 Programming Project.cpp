@@ -6,7 +6,7 @@
 using namespace std;
 
 void getRegInfo(string& regionName, int& ACC) {
-    cout << "Enter Region name";
+    cout << "Enter Region name\n";
     getline(cin, regionName);
 
     do {
@@ -34,8 +34,10 @@ bool isLower(int F1, int F2) {
 
 }
 
-void showLowest() {
+void showLowest(string regionName, int ACC) {
 
+    cout << "The safest region to drive in:\t" << regionName<< endl;
+    cout << ACC << " accidents reported\n";
 
 
 }
@@ -43,106 +45,49 @@ void showLowest() {
 
 int main()
 {
-    std::cout << "Hello World!\n";
-}
+    string LOWREG;
+    int LOWACC;//lowest amount of accidents
+    int NUM = 5;//there were 5 different regions; north, south, east, west, and central
+    bool FIRSTREG = true;
 
+    for (int i = 0; i < NUM; i++) {
 
+        string NOWREG;
+        int NOWACC;
 
+        getRegInfo(NOWREG, NOWACC);
 
+        if (FIRSTREG) {
 
-
-
-
-void getLength_Width(double& length, double& width) {
-
-    do {
-        cout << "What is length and width of  structure? \n";
-        cin >> length;
-        cin >> width;
-
-
-
-        if (length <= 0 || width <= 0) {
-
-            cout << "Error, please input positive value\n";
-
-
+            LOWACC = NOWACC;
+            LOWREG = NOWREG;
+            FIRSTREG = false;
 
 
 
 
         }
+        else if (isLower(NOWACC, LOWACC)) {
 
+            LOWACC = NOWACC;
+            LOWREG = NOWREG;
 
-
-    }
-
-
-
-    while (length <= 0 || width <= 0);
-
-
-
-}
+        }
 
 
 
 
-
-double calcPerimeter(double L, double W) {
-
-    return 2 * (L + W);
-
-
-}
-
-double calcArea(double l, double w) {
-
-    return (l * w);
-
-
-
-}
-
-void displayProperties(double PE, double AREA) {
-
-    cout << "Perimeter:\t" << PE << endl;
-    cout << "Area:     \t" << AREA << endl;
-
-
-
-
-
-}
-
-
-
-
-
-int main()
-{
-    char choice;
-
-    do {
-        double length, width;
-
-        getLength_Width(length, width);
-
-        displayProperties(calcPerimeter(length, width), calcArea(length, width));
-
-
-
-        cout << "Process another? (Y/N): \n";
-        cin >> choice;
 
 
     }
-
-
-    while (choice == 'Y');
-
+    showLowest(LOWREG, LOWACC);
 
     return 0;
 
 
 }
+
+
+
+
+
