@@ -4,12 +4,12 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
+//this module controls the input
 void getRegInfo(string& regionName, int& ACC) {
     cout << "Enter Region name\n";
     getline(cin, regionName);
 
-    do {
+    do {//loops till nonnegative value is an input
 
         cout << "Enter the number of accidents reported in " << regionName << endl;
         cin >> ACC;
@@ -26,14 +26,14 @@ void getRegInfo(string& regionName, int& ACC) {
 
     cin.ignore();
 }
-
+//This module compares each accident value
 bool isLower(int F1, int F2) {
 
-    return (F1 <= F2);
+    return (F1 <= F2);//returns to caller
 
 
 }
-
+//this module is the output and dispalys the answers
 void showLowest(string regionName, int ACC) {
 
     cout << "The safest region to drive in:\t" << regionName<< endl;
@@ -42,7 +42,7 @@ void showLowest(string regionName, int ACC) {
 
 }
 
-
+//the caller of the other modules
 int main()
 {
     string LOWREG;
@@ -50,12 +50,12 @@ int main()
     int NUM = 5;//there were 5 different regions; north, south, east, west, and central
     bool FIRSTREG = true;
 
-    for (int i = 0; i < NUM; i++) {
+    for (int i = 0; i < NUM; i++) {//loops fora all 5 inputs
 
         string NOWREG;
         int NOWACC;
 
-        getRegInfo(NOWREG, NOWACC);
+        getRegInfo(NOWREG, NOWACC);//calls the input
 
         if (FIRSTREG) {
 
@@ -67,7 +67,7 @@ int main()
 
 
         }
-        else if (isLower(NOWACC, LOWACC)) {
+        else if (isLower(NOWACC, LOWACC)) {//calls the comparison module
 
             LOWACC = NOWACC;
             LOWREG = NOWREG;
@@ -80,7 +80,7 @@ int main()
 
 
     }
-    showLowest(LOWREG, LOWACC);
+    showLowest(LOWREG, LOWACC);//calls the output module
 
     return 0;
 
