@@ -5,22 +5,23 @@
 #include <iomanip>
 using namespace std;
 
+//global variables, makes it easier to change if you want different values
 const int LOWER = 0;
 const int UPPER = 20;
 
-
+//no input from user
 
 double getCelsius(double F) {
 
     
 
-    return (F-32)*5/9;
+    return (F-32)*5/9;//retruns to caller
 
 
 }
 
 int main()
-{
+{//all this is the ouput of the chart
     cout << "Celsius Temperature Data Table \n\n";
     cout << "___________________\n";
     cout << setw(6)<<"Fahrenheit"<<setw(10)<<"Celsius\n";
@@ -29,11 +30,11 @@ int main()
     cout << fixed << setprecision(1);
 
 
-    for (int i = LOWER; i <= UPPER; i++) {
+    for (int i = LOWER; i <= UPPER; i++) {//loops till calculates for 20
 
         double C = getCelsius(i);
         cout<<setw(10) << i << setw(10)<<C << endl;
-
+//I set these values (setw) so it would look nice on ouput
     }
 
     return 0;
