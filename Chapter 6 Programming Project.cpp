@@ -99,7 +99,7 @@ int main()
 
 
     cin.ignore();
-
+    //final output
     cout << "Your final score is...\n";
     cin.get();//makes it so the user needs to press enter to continue for a little flair
     cout << AVE << endl;
