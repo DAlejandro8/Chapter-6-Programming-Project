@@ -3,10 +3,10 @@
 
 #include <iostream>
 using namespace std; 
-
+//this module controls the input
 void getLength_Width(double &length, double &width) {
     
-    do {
+    do {//loops incase of a value les than 0
         cout << "What is length and width of  structure? \n";
         cin >> length;
         cin >> width;
@@ -41,14 +41,14 @@ void getLength_Width(double &length, double &width) {
 
 
 double calcPerimeter(double L,double W) {
-
+    //calculates perimter and returns to caller
     return 2 * (L + W);
 
 
 }
 
 double calcArea(double l, double w) {
-
+    //calculates area and returns to caller
     return (l * w);
 
 
@@ -56,7 +56,7 @@ double calcArea(double l, double w) {
 }
 
 void displayProperties(double PE, double AREA) {
-
+    //this module controls the output and displayes the final answers
     cout << "Perimeter:\t" << PE << endl;
     cout << "Area:     \t" << AREA << endl;
 
@@ -69,14 +69,15 @@ void displayProperties(double PE, double AREA) {
 
 
 
-
+//combines everything togther
+//main is last so it can work all better
 int main()
 {
     char choice;
 
-    do {
+    do {//makes it so it can display another answer if needed by user
         double length, width;
-
+        //calls all the modules
         getLength_Width(length, width);
 
         displayProperties(calcPerimeter(length, width), calcArea(length, width));
@@ -90,7 +91,7 @@ int main()
     } 
     
     
-    while (choice == 'Y');
+    while (choice == 'Y');//Made it so it is specicially Y and Y only
 
 
     return 0;
