@@ -7,7 +7,7 @@ using namespace std;
 
 
 
-
+//module for input of judge's score
 double getScore() {
     double SCORE;
     do {
@@ -16,13 +16,14 @@ double getScore() {
 
 
 
-    } while (SCORE < 0 || SCORE>10);
+    } while (SCORE < 0 || SCORE>10);//loops if wrong score is inputted
         return SCORE;
 
 
 }
 
-
+//these two modules compare for the lowest or highest score which will be useful later
+//returns resualts to caller
 bool isLower(double L, double H) {
 
     return L <= H;
@@ -36,10 +37,10 @@ bool isHigher(double L, double H) {
 }
 
 
-
+//this module does the claculation of the average
 double calcAverage(double TOTAL, double MIN, double MAX) {
 
-    return (TOTAL - MIN - MAX) / 3;
+    return (TOTAL - MIN - MAX) / 3;//the subtraction is to remove the highest and lowest score
 
 
 
@@ -57,16 +58,16 @@ int main()
     TOTAL += score;
     MIN = MAX = score;
 
-    for (int i = 1; i < 5; i++) {
+    for (int i = 1; i < 5; i++) {//loops till reaches the end
         score = getScore();
         TOTAL += score;
         
-        if (isLower(score, MIN)) {
+        if (isLower(score, MIN)) {//retrieves the lowest score
 
             MIN = score;
 
         }
-        if (isHigher(score, MAX)) {
+        if (isHigher(score, MAX)) {//retrieves the highest score
 
             MAX = score;
 
@@ -89,7 +90,7 @@ int main()
 
 
 
-    double AVE = calcAverage(TOTAL, MIN, MAX);
+    double AVE = calcAverage(TOTAL, MIN, MAX);//retrieves teh resulats of calulations using the for loop resualts
 
 
 
@@ -100,7 +101,7 @@ int main()
     cin.ignore();
 
     cout << "Your final score is...\n";
-    cin.get();
+    cin.get();//makes it so the user needs to press enter to continue for a little flair
     cout << AVE << endl;
 
 
